@@ -15,10 +15,6 @@
 #' La traducción para el curso de Tamara Burdisso fue realizada por
 #' *Ignacio Caro Solís*
 
-## Cargamos los paquetes necesarios
-library(tidyverse)
-
-
 #' Se suele decir que los jugadores de básquet que tienen varios aciertos
 #' consecutivos tienen **“manos calientes”**. Los fanáticos y jugadores 
 #' han creído por mucho tiempo en este fenómeno, que niega el supuesto 
