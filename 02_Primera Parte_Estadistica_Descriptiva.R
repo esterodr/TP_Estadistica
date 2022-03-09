@@ -30,11 +30,11 @@ load("./archivos/MERVAL.Rda")
 
 
 ###### Ejecutar desde aqui #################################
-MERVAL %>% filter(Fecha>="2019-01-01") %>%
+MERVAL %>% filter(Fecha>="2019-01-01" & Fecha<="2019-12-31") %>%
   ggplot(aes(x=Fecha, y=MERVAL)) +
   geom_line() +
-  geom_line(data = . %>% filter(Fecha %in% as.Date(c("2019-08-09","2019-08-12"))), color="red") +
-  ggtitle("Índice MERVAL desde 2019") +
+  geom_line(data = . %>% filter(Fecha %in% as.Date(c("2019-08-09","2019-08-12"))), color="red", size=1) +
+  labs(title="Índice MERVAL desde 2019") +
   theme_classic() +
   theme(panel.grid.major.y = element_line(linetype = "dotted"),
         panel.grid.major.x = element_line(linetype = "dotted"),
@@ -86,8 +86,7 @@ sd(MERVAL$Rendimientos, na.rm = TRUE)
 MERVAL %>% ggplot(aes(x=Rendimientos)) +
   geom_histogram(binwidth = 0.05, alpha=.5, position="identity", fill="cyan", color="black") +
   theme_classic() +
-  ggtitle("Rendimientos diarios del MERVAL") +
-  ylab("Frecuencia Absoluta")
+  labs(y="Frecuencia Absoluta", title="Rendimientos diarios del MERVAL") 
 ###### Hasta aqui ##########################################
 
 
@@ -98,7 +97,7 @@ MERVAL %>%
   ggplot(aes(y=Rendimientos)) + 
   geom_boxplot(fill="cyan") + 
   theme_classic() +
-  ggtitle("Rendimientos diarios del MERVAL") +
+  labs(title="Rendimientos diarios del MERVAL") +
   theme(axis.text.x = element_blank(),
         axis.ticks.x = element_blank(),
         panel.grid.major.y = element_line(linetype = "dotted"),
@@ -177,7 +176,7 @@ chebyshev %>%
   scale_x_continuous(breaks = seq(2:18)) +
   theme(panel.grid.major.y = element_line(linetype = "dotted"),
         panel.grid.major.x = element_line(linetype = "dotted")) +
-  ggtitle("Chebyshev en el MERVAL")
+  labs(title="Chebyshev en el MERVAL")
 ###### Hasta aqui ##########################################
 
 

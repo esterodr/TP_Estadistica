@@ -58,12 +58,9 @@ sd(inflacion_2019) # Esta función calcula el desvío standard
 #' Calcular una tabla de frecuencias. ¿Cuáles son los 5 pronósticos más frecuentes?
 
 ###### Ejecutar desde aqui #################################
-as.data.frame(inflacion_2019) %>%
-  group_by(inflacion_2019) %>%
-  summarise(Inflacion_2019=unique(inflacion_2019), Frecuencia=n()) %>%
-  select(Inflacion_2019, Frecuencia) %>%
-  arrange(desc(Frecuencia)) %>%
-  print(n=25)
+tibble(inflacion_2019=inflacion_2019) %>%
+  count(inflacion_2019) %>% 
+  arrange(desc(n))
 ###### Hasta aqui ##########################################
  
 #' Dibujar histograma y boxplot de las expectativas de inflación.
@@ -76,8 +73,8 @@ inflacion_2019 %>% as.data.frame() %>%
   ggplot() +
   geom_histogram(aes(inflacion_2019), binwidth = 1, fill="cyan", color="black") +
   theme_classic() +
-  ggtitle("Histograma de Expectativas de Inflación") +
-  ylab("Frecuencia Absoluta") +
+  labs(x="Inflación en 2019", y="Frecuencia Absoluta", 
+       title="Histograma de Expectativas de Inflación") +
   scale_x_continuous(breaks=seq(0,350,25))
 ###### Hasta aqui ##########################################
 
@@ -88,8 +85,8 @@ inflacion_2019 %>% as.data.frame() %>%
   ggplot() +
   geom_boxplot(aes(y=inflacion_2019), fill="cyan") +
   theme_classic() +
-  ggtitle("Boxplot de Expectativas de Inflación") +
-  ylab("Pronóstico de Inflación para 2019") +
+  labs(x="", y="Pronóstico de Inflación para 2019", 
+       title="Boxplot de Expectativas de Inflación") +
   theme(axis.text.x = element_blank(),
         axis.ticks.x = element_blank())
 ###### Hasta aqui ##########################################
@@ -129,8 +126,8 @@ inflacion_2019_corregida %>% as.data.frame() %>%
   ggplot() +
   geom_histogram(aes(inflacion_2019_corregida), binwidth = 1, fill="cyan", color="black") +
   theme_classic() +
-  ggtitle("Histograma de Expectativas de Inflación") +
-  ylab("Frecuencia Absoluta") +
+  labs(x="Inflación en 2019", y="Frecuencia Absoluta", 
+       title="Histograma de Expectativas de Inflación") +
   scale_x_continuous(breaks=seq(0,45,5)) +
   scale_y_continuous(breaks = seq(0,10,2)) +
   theme(panel.grid.major.y = element_line(linetype = "dotted"),
@@ -145,8 +142,8 @@ inflacion_2019_corregida %>% as.data.frame() %>%
   ggplot() +
   geom_boxplot(aes(y=inflacion_2019_corregida), fill="cyan") +
   theme_classic() +
-  ggtitle("Boxplot de Expectativas de Inflación") +
-  ylab("Pronóstico de Inflación para 2019") +
+  labs(x="", y="Pronóstico de Inflación para 2019", 
+       title="Boxplot de Expectativas de Inflación") +
   theme(axis.text.x = element_blank(),
         axis.ticks.x = element_blank(),
         panel.grid.major.y = element_line(linetype = "dotted"),
@@ -202,8 +199,8 @@ inflacion_2019_corregida %>% as.data.frame() %>%
   ggplot() +
   geom_histogram(aes(inflacion_2019_corregida), binwidth = 1, fill="cyan", color="black") +
   theme_classic() +
-  ggtitle("Histograma de Expectativas de Inflación") +
-  ylab("Frecuencia Absoluta") +
+  labs(x="Inflación en 2019", y="Frecuencia Absoluta", 
+       title="Histograma de Expectativas de Inflación") +
   scale_x_continuous(breaks=seq(0,45,5)) +
   scale_y_continuous(breaks = seq(0,20,4)) +
   theme(panel.grid.major.y = element_line(linetype = "dotted"),
@@ -218,8 +215,8 @@ inflacion_2019_corregida %>% as.data.frame() %>%
   ggplot() +
   geom_boxplot(aes(y=inflacion_2019_corregida), fill="cyan") +
   theme_classic() +
-  ggtitle("Boxplot de Expectativas de Inflación") +
-  ylab("Pronóstico de Inflación para 2019") +
+  labs(x="", y="Pronóstico de Inflación para 2019", 
+       title="Boxplot de Expectativas de Inflación") +
   theme(axis.text.x = element_blank(),
         axis.ticks.x = element_blank(),
         panel.grid.major.y = element_line(linetype = "dotted"),

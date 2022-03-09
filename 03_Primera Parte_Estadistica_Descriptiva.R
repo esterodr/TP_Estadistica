@@ -90,9 +90,8 @@ sd(datos_2007$Expectativa_de_vida)
 datos_2007 %>% ggplot() +
   geom_histogram(aes(Expectativa_de_vida), binwidth = 5, fill="cyan", color="black") +
   theme_classic() +
-  ggtitle("Histograma de Exp. de Vida") +
-  ylab("Cantidad de países") +
-  xlab("Expectativa de vida en años") +
+  labs(x="Expectativa de vida en años", y="Cantidad de países",
+       title="Histograma de Exp. de Vida") +
   scale_x_continuous(breaks=seq(35,85,5)) +
   theme(panel.background = element_blank(),
         panel.grid.major.y = element_line(linetype = "dotted"),
@@ -107,8 +106,7 @@ datos_2007 %>% ggplot() +
 datos_2007 %>% ggplot() +
   geom_boxplot(aes(y=Expectativa_de_vida), fill="cyan") +
   theme_classic() +
-  ylab("Expectativa de vida en años") +
-  ggtitle("Boxplot de Exp. de Vida") +
+  labs(y="Expectativa de vida en años", title = "Boxplot de Exp. de Vida") +
   theme(axis.text.x = element_blank(),
         axis.ticks.x = element_blank(),
         panel.background = element_blank(),
@@ -176,9 +174,7 @@ valores_z %>% ggplot() +
         axis.ticks.y = element_blank(),
         panel.grid.major.x = element_line(linetype = "dotted")) +
   scale_x_continuous(breaks=seq(-3,3,1)) +
-  xlab("Valores z") +
-  ylab("") +
-  ggtitle("Valores z de Exp. de Vida")
+  labs(x="Valores z", y="", title="Valores z de Exp. de Vida")
 ###### Hasta aqui ##########################################
 
 
@@ -196,9 +192,8 @@ valores_z %>% ggplot() +
 datos_2007 %>% filter(Continente %in% c("Africa","Europe")) %>%
   ggplot(aes(x=Expectativa_de_vida, fill=Continente)) +
   geom_histogram(binwidth = 5, alpha=.5, position="identity", color="black") + theme_classic() +
-  ggtitle("Histograma de Exp. de Vida") +
-  ylab("Cantidad de Países") +
-  xlab("Expectativa de vida en años") +
+  labs(x="Expectativa de vida en años", y="Cantidad de Países",
+       title="Histograma de Exp. de Vida") +
   theme(panel.background = element_blank(),
         panel.grid.major.y = element_line(linetype = "dotted"),
         panel.ontop = TRUE)
@@ -211,8 +206,7 @@ datos_2007 %>% filter(Continente %in% c("Africa","Europe")) %>%
 ###### Ejecutar desde aqui #################################
 datos_2007 %>% filter(Continente %in% c("Africa","Europe")) %>%
   ggplot(aes(x=Continente, y=Expectativa_de_vida)) + geom_boxplot(fill="cyan") + theme_classic() +
-  ggtitle("Boxplot de Exp. de Vida") +
-  ylab("Expectativa de vida en años") +
+  labs(y="Expectativa de vida en años", title="Boxplot de Exp. de Vida") +
   theme(panel.grid.major.y = element_line(linetype = "dotted"))
 ###### Hasta aqui ##########################################
 
@@ -239,9 +233,8 @@ datos_2007 %>% ggplot(aes(x=PIB_per_capita, y=Expectativa_de_vida)) +
   annotate("text", x=30000, y=60,
            label=paste("Coef. de correlación=",round(cor(datos_2007$PIB_per_capita,datos_2007$Expectativa_de_vida),2))) +
   theme_classic() +
-  ggtitle("Gráfico de Dispersión") +
-  xlab("PIB per cápita (dólares)") +
-  ylab("Expectativa de vida") +
+  labs(x="PIB per cápita (dólares)", y="Expectativa de vida",
+       title="Gráfico de Dispersión") +
   theme(panel.grid.major.x = element_line(linetype = "dotted"),
         panel.grid.major.y = element_line(linetype = "dotted"))
 ###### Hasta aqui ##########################################
@@ -257,9 +250,8 @@ datos_2007 %>% filter(Continente %in% c("Africa","Europe")) %>%
   ggplot(aes(x=PIB_per_capita, y=Expectativa_de_vida)) +
   geom_point(aes(color=Continente)) +
   theme_classic() +
-  ggtitle("Gráfico de Dispersión") +
-  xlab("PIB per cápita (dólares)") +
-  ylab("Expectativa de vida") +
+  labs(x="PIB per cápita (dólares)", y="Expectativa de vida",
+       title="Gráfico de Dispersión") +
   theme(panel.grid.major.x = element_line(linetype = "dotted"),
         panel.grid.major.y = element_line(linetype = "dotted"))
 ###### Hasta aqui ##########################################
