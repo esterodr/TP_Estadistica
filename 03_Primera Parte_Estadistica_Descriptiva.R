@@ -265,10 +265,11 @@ datos_2007 %>% filter(Continente %in% c("Africa","Europe")) %>%
  
 
 ###### Ejecutar desde aqui #################################
-datos_2007 %>% filter(Continente %in% c("Africa","Europe")) %>%
-  group_by(Continente) %>% 
-  summarise(Coef_Correlacion = cor(Expectativa_de_vida, PIB_per_capita)) %>% 
-  ungroup()
+datos_2007 %>% filter(Continente =="Africa") %>%
+  summarise(Corr_Africa = cor(Expectativa_de_vida, PIB_per_capita))
+
+datos_2007 %>% filter(Continente =="Europe") %>%
+  summarise(Corr_Europa = cor(Expectativa_de_vida, PIB_per_capita))
 ###### Hasta aqui ##########################################
 
 
