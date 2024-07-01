@@ -1,8 +1,19 @@
 ########################################################
-## TP de Estadística ###################################
-## Curso de Tamara Burdisso - FCE UBA ##################
+
+## TP en RStudio de Estadística para Economistas I #################
+
+## Cátedra de Tamara Burdisso – FCE-UNLP ##################
+
+## Este ejercicio fuer elaborado por Esteban Rodriguez ########
+
+## para el curso de Estadística FCE-UBA de Tamara Burdisso ##########
+
+##durante los años 2018 a 2022   ##################
+
 ########################################################
+
 ## Primera Parte - Ejercicio 3 #########################
+
 ########################################################
 
 
